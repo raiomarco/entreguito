@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id  String  @id // Discord User Id
+  cpf String?
+
+  packages Package[]
+}
+
+enum Company {
+  CORREIOS
+  AZUL
+  ICARO_EXPRESS
+}
+
+enum packageStatus {
+  PENDING
+  IN_TRANSIT
+  DELIVERED
+  UNDELIVERED
+  CANCELED
+  PAUSED
+  BLOCKED
+  UNKNOWN
+}
+
+model Package {
+  id          String        @id @default(uuid())
+  trackCode   String
+  company     Company
+  status      packageStatus
+  name        String?
+  description String?
+  forecast    DateTime?
+
+  // Azul
+  origin       String?
+  destination  String?
+  customStatus String?
+  weight       String? // Kg
+  volumes      String?
+  history      Update[]
+
+  lastUpdate DateTime?
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+}
+
+model Update {
+  id   String   @id @default(uuid())
+  info String
+  date DateTime
+
+  location  String?
+  subStatus String[]
+
+  package   Package @relation(fields: [packageId], references: [id])
+  packageId String
+}
