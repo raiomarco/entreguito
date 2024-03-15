@@ -1,5 +1,5 @@
-import { command, commandData } from "@/types/bot";
-import { CommandInteraction, SlashCommandBuilder } from "discord.js";
+import type { command, commandData } from "@/types/bot";
+import { type CommandInteraction, SlashCommandBuilder } from "discord.js";
 
 const subCommands: command[] = [];
 

@@ -1,4 +1,4 @@
-import { command } from "@/types/bot";
+import type { command } from "@/types/bot";
 import { REST, Routes } from "discord.js";
 
 import * as about from "./about";

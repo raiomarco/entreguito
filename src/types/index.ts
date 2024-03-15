@@ -1,4 +1,10 @@
-import { Company, Package, Update, User, packageStatus } from "@prisma/client";
+import {
+	Company,
+	type Package,
+	type Update,
+	User,
+	packageStatus,
+} from "@prisma/client";
 
 type OptionalUpdate = Omit<Update, "id" | "packageId" | "location"> & {
 	id?: string;
@@ -34,9 +40,9 @@ type OptionalPackage = Omit<
 };
 
 export {
-	OptionalPackage as Package,
+	type OptionalPackage as Package,
 	packageStatus,
 	Company,
 	User,
-	OptionalUpdate as Update,
+	type OptionalUpdate as Update,
 };

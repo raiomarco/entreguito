@@ -1,7 +1,7 @@
 import prisma from "@/modules/db";
-import { commandData } from "@/types/bot";
+import type { commandData } from "@/types/bot";
 import { packageStatus } from "@prisma/client";
-import { CommandInteraction } from "discord.js";
+import type { CommandInteraction } from "discord.js";
 
 export const data: commandData = {
 	name: "add",

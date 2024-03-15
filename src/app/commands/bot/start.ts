@@ -1,5 +1,5 @@
-import { commandData } from "@/types/bot";
-import { CommandInteraction, SlashCommandBuilder } from "discord.js";
+import type { commandData } from "@/types/bot";
+import { type CommandInteraction, SlashCommandBuilder } from "discord.js";
 
 export const data: commandData = {
 	name: "start",

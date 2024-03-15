@@ -2,10 +2,10 @@ import axios from "axios";
 import * as cheerio from "cheerio";
 import * as chrono from "chrono-node";
 
-import { Company, Package, Update, packageStatus } from "@/types";
+import { Company, type Package, type Update, packageStatus } from "@/types";
 
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 
 const company = Company.AZUL;
 
